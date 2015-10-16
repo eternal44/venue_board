@@ -6,6 +6,9 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
+  def show
+  end
+
   def new
     @job = Job.new
   end
@@ -15,10 +18,26 @@ class JobsController < ApplicationController
     @job.employer = current_employer
 
     if @job.save
-      redirect_to request.referrer
+      redirect_to jobs_path
     else
       render action: :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @job.update(job_params)
+      redirect_to jobs_path
+    else
+      render action: :edit
+    end
+  end
+
+  def destroy
+    @job.destroy
+    redirect_to jobs_path
   end
 
   private
@@ -28,6 +47,6 @@ class JobsController < ApplicationController
   end
 
   def set_job
-    @job = Job.find(params[:job_id])
+    @job = Job.find(params[:id])
   end
 end

@@ -16,7 +16,16 @@
 require 'test_helper'
 
 class JobTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @valid_job = jobs(:one)
+  end
+
+  test "should be valid" do
+    assert @valid_job.valid?
+  end
+
+  test "employer id should be present" do
+    @valid_job.employer_id = nil
+    assert_not @valid_job.valid?
+  end
 end

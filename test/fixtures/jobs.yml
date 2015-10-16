@@ -16,17 +16,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  location: MyString
+  title: 'MyString'
+  location: 'MyString'
   start: 2015-10-15 14:58:38
   end: 2015-10-15 14:58:38
-  employer_id: 
-  status: MyString
+  employer_id: one
+  status: 'MyString'
 
 two:
-  title: MyString
-  location: MyString
-  start: 2015-10-15 14:58:38
-  end: 2015-10-15 14:58:38
-  employer_id: 
-  status: MyString
+  title:
+  location:
+  start:
+  end:
+  employer_id:
+  status:

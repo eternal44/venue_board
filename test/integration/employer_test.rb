@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class EmployersTest < ActionDispatch::IntegrationTest
-  # self.use_transactional_fixtures = false
+  self.use_transactional_fixtures = false
 
   def setup
     @employer = employers(:one)
@@ -15,5 +15,16 @@ class EmployersTest < ActionDispatch::IntegrationTest
     find_button('Log in')
     click_on 'Log in'
     assert page.has_content?('Logout'), 'not logged in'
+  end
+
+  test 'employer can create a new job' do
+    login_as(@employer)
+    visit new_job_path
+    assert page.has_content?('Title')
+    fill_in('Title', with: 'Clean 3 bedroom house')
+    fill_in('Location', with: '1234 Main st')
+    fill_in('Start', with: 'Feb 4, 2015') # match date picker / selection
+    fill_in('End', with: 'Feb 5, 2015') # match date picker / selection
+    fill_in('Status', with: 'Looking') # match date picker / selection
   end
 end

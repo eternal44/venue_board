@@ -28,4 +28,5 @@ class JobTest < ActiveSupport::TestCase
     @valid_job.employer_id = nil
     assert_not @valid_job.valid?
   end
+
 end

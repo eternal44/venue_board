@@ -5,6 +5,7 @@ class EmployersTest < ActionDispatch::IntegrationTest
 
   def setup
     @employer = employers(:one)
+    @job = jobs(:one)
   end
 
   test 'employers can login' do
@@ -23,14 +24,20 @@ class EmployersTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Title')
     fill_in('Title', with: 'Clean 3 bedroom house')
     fill_in('Location', with: '1234 Main st')
-    select('2015', :from => 'job_start_1i')
-    select('October', :from => 'job_start_2i')
-    select('15', :from => 'job_start_3i')
-    select('03', :from => 'job_start_4i')
-    select('30', :from => 'job_start_5i')
-    select('Created', :from => 'job_status')
+    fill_in('Start', with: '10/01/2015 1:00 PM')
+    fill_in('End', with: '10/17/2015 12:00 AM')
     find_button('Create Job')
     click_on 'Create Job'
     assert page.has_content?('Clean 3 bedroom house'), 'job not created'
+  end
+
+  test 'update job as employer' do
+    login_as(@employer)
+    visit job_path(@job)
+    assert page.has_content?('MyString')
+    click_on('Edit')
+    fill_in('Title', with: 'Hello Test')
+    click_on('Update Job')
+    assert page.has_content?('Update Job')
   end
 end

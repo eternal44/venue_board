@@ -1,0 +1,36 @@
+<%= form_for @job, url: @job, html: { multipart: true } do |form| %>
+  <%# <ul class="nav navbar-nav"> %>
+    <% if @job.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@job.errors.count, "error") %> prohibited this archive f
+          <ul>
+            <% @job.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+    <div class='form-group'>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, class: 'form-control', size: 57 %>
+    </div>
+    <div class='form-group'>
+      <%= form.label :location %>
+      <%= form.text_area(:location, class: 'form-control', size: "60x12") %>
+    </div>
+    <div class="form-group">
+      <%= form.label :status %>
+      <%= form.select :status, ["Created", "Approved", "Taken", "Completed"] %> 
+      <%# see go rails or jblog for reference %>
+  </div>
+  <div class="form-group field start-field">
+    <%= form.label :start, "Job Start" %><br>
+    <%= form.datetime_select :start %>
+  </div>  <div class="form-group field end-field">
+    <%= form.label :published_at, "Job End" %><br>
+    <%= form.datetime_select :end %>
+  </div>
+  <div class='action'>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

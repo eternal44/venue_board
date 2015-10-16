@@ -27,13 +27,14 @@ group :development, :test do
   gem 'spring'
   gem 'better_errors',        '~> 2.1.1'
   gem 'binding_of_caller',    '~> 0.7.2'
+  gem 'guard'
+  gem 'guard-minitest',       '2.3.1'
 end
 
 group :test do
   gem 'minitest-reporters',   '1.0.5'
   gem 'minitest-rails-capybara'
   gem 'selenium-webdriver'
-  gem 'guard-minitest',       '2.3.1'
 end
 
 group :production do

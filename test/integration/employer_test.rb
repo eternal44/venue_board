@@ -23,8 +23,14 @@ class EmployersTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Title')
     fill_in('Title', with: 'Clean 3 bedroom house')
     fill_in('Location', with: '1234 Main st')
-    fill_in('Start', with: 'Feb 4, 2015') # match date picker / selection
-    fill_in('End', with: 'Feb 5, 2015') # match date picker / selection
-    fill_in('Status', with: 'Looking') # match date picker / selection
+    select('2015', :from => 'job_start_1i')
+    select('October', :from => 'job_start_2i')
+    select('15', :from => 'job_start_3i')
+    select('03', :from => 'job_start_4i')
+    select('30', :from => 'job_start_5i')
+    select('Created', :from => 'job_status')
+    find_button('Create Job')
+    click_on 'Create Job'
+    assert page.has_content?('Clean 3 bedroom house'), 'job not created'
   end
 end

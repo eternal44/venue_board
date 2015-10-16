@@ -18,6 +18,8 @@ gem 'bootstrap-sass',         '~> 3.3.4.1'
 gem 'ransack',                '~> 1.6.6'
 gem 'paperclip',              '~> 4.3'
 gem 'aws-sdk',                '< 2.0'
+gem 'momentjs-rails',         '~> 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 group :development, :test do
   gem 'hirb'

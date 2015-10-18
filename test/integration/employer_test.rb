@@ -33,11 +33,12 @@ class EmployersTest < ActionDispatch::IntegrationTest
 
   test 'update job as employer' do
     login_as(@employer)
-    visit job_path(@job)
+    visit jobs_path
     assert page.has_content?('MyString')
-    click_on('Edit')
+    first(:link, "Edit").click
+    assert page.has_content?('Title'), 'not on edit page'
     fill_in('Title', with: 'Hello Test')
     click_on('Update Job')
-    assert page.has_content?('Update Job')
+    assert page.has_content?('Hello Test'), 'page not updated'
   end
 end

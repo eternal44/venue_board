@@ -16,6 +16,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.employer = current_employer
+    @job.status = 'Created'
 
     if @job.save
       redirect_to jobs_path

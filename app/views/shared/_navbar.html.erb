@@ -12,11 +12,8 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <% if employer_signed_in? %>
-          <%# <li><%= link_to "Contact", contact_path %1></li> %>
           <li><%= link_to "Logout", destroy_employer_session_path, method: :delete %></li>
-          <%# <li><%= link_to "Profile", edit_user_registration_path %1></li> %>
         <% else %>
-          <%# <li><%= link_to "Contact", contact_path %1></li> %>
           <li><%= link_to "Sign Up", new_employer_registration_path %></li>
           <li><%= link_to "Login", new_employer_session_path %></li>
         <% end %>

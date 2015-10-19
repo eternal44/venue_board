@@ -3,11 +3,17 @@ class JobsController < ApplicationController
   before_action :authenticate_any!
 
   def index
-    if employer_signed_in?
-      @jobs = current_employer.jobs
-    else
-      @jobs = Job.all
-    end
+    @q = Job.ransack(params[:q])
+    @job = @q.result(distinct: true)
+
+    # if employer_signed_in?
+    #   @q = current_employer.jobs.ransack(params[:q])
+    #   @job = @q.result(distinct: true)
+    # else
+    #   @q = Job.ransack(params[:q])
+    #   @job = @q.result(distinct: true)
+    # end
+
   end
 
   def show
@@ -52,6 +58,7 @@ class JobsController < ApplicationController
   end
 
   def set_job
+    # scope :salary_gt, ->(amount) { where('salary > ?', amount) }
     @job = Job.find(params[:id])
   end
 end

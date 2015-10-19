@@ -1,9 +1,9 @@
-<%# <div class="row pull-right"> %>
-<%#   <%= search_form_for @q, html: {class: "form-inline navbar-left" } do |f| %1> %>
-<%#     <%= f.search_field :text_or_title_cont, placeholder: "Search posts", class: "form-control vertical-align: middle", style: "top-padding: 10px; margin-left: 10px"%> %>
-<%#     <%= f.submit "Search", class: "btn btn-primary", style: "top-padding: 10px; margin-left: 10px" %1> %>
-<%#   <% end %1> %>
-<%# </div> %>
+<div class="row pull-right">
+  <%= search_form_for @q, html: {class: "form-inline navbar-left" } do |f| %>
+    <%= f.search_field :title_or_location_cont, placeholder: "Search jobs", class: "form-control vertical-align: middle", style: "top-padding: 10px; margin-left: 10px"%>
+    <%= f.submit "Search", class: "btn btn-primary", style: "top-padding: 10px; margin-left: 10px" %>
+  <% end %>
+</div>
 
 <p id="notice"><%= notice %></p>
 
@@ -22,8 +22,8 @@
     </thead>
 
     <tbody>
-      <% if @jobs.present? %>
-        <% @jobs.each do |job| %>
+      <% if @job.present? %>
+        <% @job.each do |job| %>
           <tr>
             <td><%= link_to job.title, job %></td>
             <td><%= link_to "Edit", edit_job_path(job) %></td>

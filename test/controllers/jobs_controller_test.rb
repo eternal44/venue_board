@@ -22,4 +22,11 @@ class JobsControllerTest < ActionController::TestCase
       delete :destroy, id: @valid_job
     end
   end
+
+  test 'if signed in as employer should only show own jobs' do
+    sign_in employers(:one)
+    get :show, id: jobs(:two)
+    assert_response :redirect
+  end
+
 end

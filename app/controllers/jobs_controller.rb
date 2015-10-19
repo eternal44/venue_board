@@ -1,9 +1,13 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_employer!
+  before_action :authenticate_any!
 
   def index
-    @jobs = Job.all
+    if employer_signed_in?
+      @jobs = current_employer.jobs
+    else
+      @jobs = Job.all
+    end
   end
 
   def show

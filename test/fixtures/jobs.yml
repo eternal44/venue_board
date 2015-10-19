@@ -21,12 +21,12 @@ one:
   start: 2015-10-15 14:58:38
   end: 2015-10-15 14:58:38
   employer_id: one
-  status: 'MyString'
+  status: 'Created'
 
 two:
-  title:
-  location:
-  start:
-  end:
-  employer_id:
-  status:
+  title: 'Second Job'
+  location: 'Second Location'
+  start: 2015-10-15 14:58:38
+  end: 2015-10-15 14:58:38
+  employer_id: two
+  status: 'Created'

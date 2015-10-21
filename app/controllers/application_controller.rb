@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   def authenticate_any!
     if admin_signed_in?
       true
+    elsif worker_signed_in?
+      true
     else
       authenticate_employer!
     end

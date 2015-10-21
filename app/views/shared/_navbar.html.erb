@@ -13,11 +13,13 @@
       <ul class="nav navbar-nav">
         <% if employer_signed_in? %>
           <li><%= link_to "Logout", destroy_employer_session_path, method: :delete %></li>
+          <li><%= link_to "Account", edit_employer_registration_path %></li>
+        <% elsif worker_signed_in? %>
+          <li><%= link_to "Logout", destroy_worker_session_path, method: :delete %></li>
+          <li><%= link_to "Account", edit_worker_registration_path %></li>
         <% elsif admin_signed_in? %>
           <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Sign Up", new_employer_registration_path %></li>
-          <li><%= link_to "Login", new_employer_session_path %></li>
         <% end %>
       </ul>
     </nav>

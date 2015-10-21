@@ -5,8 +5,8 @@
 #  id          :integer          not null, primary key
 #  title       :string
 #  location    :string
-#  start       :datetime
-#  end         :datetime
+#  start       :text
+#  end         :text
 #  employer_id :integer
 #  status      :string
 #  created_at  :datetime         not null

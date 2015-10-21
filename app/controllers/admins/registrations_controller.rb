@@ -7,7 +7,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def sign(resource_name, resource)
+  def sign_up(resource_name, resource)
     # just overwrite the default one to prevent auto sign in as the new sign up
     # note:  is this a blank overwrite?
   end

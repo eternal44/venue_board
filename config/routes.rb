@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: { registraions: "admins/registrations" }
   devise_for :employers
+  devise_for :workers
   resources :jobs
 
   # logged-in root

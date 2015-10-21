@@ -5,7 +5,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :location
       t.datetime :start
       t.datetime :end
-      t.references :employer, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
       t.string :status
 
       t.timestamps null: false

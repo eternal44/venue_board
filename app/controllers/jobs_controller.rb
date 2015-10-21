@@ -1,19 +1,10 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_any!
+  # before_action :authenticate_user!
 
   def index
     @q = Job.ransack(params[:q])
     @job = @q.result(distinct: true)
-
-    # if employer_signed_in?
-    #   @q = current_employer.jobs.ransack(params[:q])
-    #   @job = @q.result(distinct: true)
-    # else
-    #   @q = Job.ransack(params[:q])
-    #   @job = @q.result(distinct: true)
-    # end
-
   end
 
   def show
@@ -25,7 +16,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    @job.employer = current_employer
+    @job.user = current_user
     @job.status = 'Created'
 
     if @job.save
@@ -54,11 +45,10 @@ class JobsController < ApplicationController
   private
   def job_params
     params.require(:job).permit(:title, :location, :start, :end,
-                                :employer_id, :status)
+                                :user_id, :status)
   end
 
   def set_job
-    # scope :salary_gt, ->(amount) { where('salary > ?', amount) }
     @job = Job.find(params[:id])
   end
 end

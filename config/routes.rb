@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   devise_for :admins, controllers: { registraions: "admins/registrations" }
-  devise_for :employers
-  devise_for :workers
+  devise_for :users
   resources :jobs
 
   # logged-in root
@@ -11,12 +10,12 @@ Rails.application.routes.draw do
     root to: "jobs#index", as: :authenticated_admin_root, via: :get
   end
 
-  # logged-in root
-  authenticated :employer do
-    root to: "jobs#index", as: :authenticated_employer_root, via: :get
+  # user logged-in root
+  authenticated :user do
+    root to: "jobs#index", as: :authenticated_user_root, via: :get
   end
 
-  # visotrs root
+  # visitors root
   unauthenticated do
     root to: "static_pages#home"
   end

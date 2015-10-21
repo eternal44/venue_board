@@ -8,6 +8,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Jobs</h1>
+<%= current_user.present? %>
 
 <div class="row-fluid">
   <%= link_to 'New job', new_job_path %></br>

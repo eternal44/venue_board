@@ -8,11 +8,9 @@
       <%= current_user.present? %>
       <h3>A transparent place for job seekers & employers</h3>
       <br>
-      <a href="" class="btn btn-primary btn-lg">Employer Login</a>
-      <a href="" class="btn btn-warning btn-lg">Job Seeker Login</a>
+      <a href="/users/sign_in" class="btn btn-primary btn-lg">User Login</a>
       <div class"row">
-        <%= link_to "Employer Sign Up" %> |
-        <%= link_to "Job Seeker Sign Up"%>
+        <%= link_to "New User Registration", new_user_registration_path %> |
       </div>
     </div>
   </header>

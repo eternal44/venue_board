@@ -2,16 +2,15 @@
 #
 # Table name: jobs
 #
-#  id          :integer          not null, primary key
-#  title       :string
-#  location    :string
-#  start       :text
-#  end         :text
-#  employer_id :integer
-#  status      :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
+#  id         :integer          not null, primary key
+#  title      :string
+#  location   :string
+#  start      :text
+#  end        :text
+#  user_id    :integer
+#  status     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Job < ActiveRecord::Base

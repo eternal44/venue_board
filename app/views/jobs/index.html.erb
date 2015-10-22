@@ -19,8 +19,8 @@
   <table class="table table-bordered table-condensed table-striped">
     <thead>
       <tr>
-        <th>Job Name</th>
-        <th>User Info</th>
+        <th>Job Title</th>
+        <th>Employer</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -30,7 +30,7 @@
         <% @job.each do |job| %>
           <tr>
             <td><%= link_to job.title, job %></td>
-            <td><%= link_to job.user.email, job %></td>
+            <td><%= link_to job.user.profile.try(:name), profile_path(job.user.profile.id) %></td>
             <td><%= link_to "Edit", edit_job_path(job) %></td>
             <td><%= link_to "Destroy", job_path(job), method: :delete, data: {confirm: 'Are you sure?' } %></td>
           </tr>

@@ -23,4 +23,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  after_create :setup_profile
+
+  has_one :profile
+
+  def setup_profile
+    Profile.create(user_id: self.id)
+  end
 end

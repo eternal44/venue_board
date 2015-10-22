@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: { registraions: "admins/registrations" }
   devise_for :users
   resources :jobs
+  resources :profiles, only: [:show]
 
   # logged-in root
   authenticated :admin do

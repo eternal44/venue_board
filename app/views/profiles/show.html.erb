@@ -9,3 +9,8 @@
   <%= job.title %>
   <%= job.status %>
 <% end %>
+
+<%= render partial: "comments/form", locals: {commentable: @profile} %>
+<%= render partial: "comments/comments", locals: {commentable: @profile} %>
+
+

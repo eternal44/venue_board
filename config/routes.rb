@@ -3,8 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: { registraions: "admins/registrations" }
   devise_for :users
-  resources :jobs
-  resources :profiles, only: [:show, :update, :edit]
+  resources :jobs do
+    resources :comments, module: :jobs
+  end
+
+  resources :profiles, only: [:show, :update, :edit] do
+    resources :comments, module: :profiles
+  end
 
   # logged-in root
   authenticated :admin do

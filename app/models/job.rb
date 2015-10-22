@@ -22,4 +22,5 @@ class Job < ActiveRecord::Base
   validates :end, presence: true
   validates :status, presence: true
   validates :user_id, presence: true
+
 end

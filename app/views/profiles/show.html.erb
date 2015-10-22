@@ -1,1 +1,11 @@
-hello
+<% if current_user.id == @profile.user_id %>
+  <%= link_to "Edit | ", edit_profile_path(@profile) %>
+<% end %>
+<%= link_to 'Back', :back %>
+
+<%= @profile.name %></br>
+<%= @profile.user.role %></br>
+<% @profile.user.jobs.each do |job| %>
+  <%= job.title %>
+  <%= job.status %>
+<% end %>

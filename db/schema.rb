@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20151021230931) do
     t.string   "location"
     t.text     "start"
     t.text     "end"
-    t.integer  "user_id"
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree

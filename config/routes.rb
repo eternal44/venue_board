@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :update, :edit] do
     resources :comments, module: :profiles
+    member do
+      put "like", to: "profiles#upvote"
+      put "dislike", to: "profiles#downvote"
+    end
   end
 
   # logged-in root

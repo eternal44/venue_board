@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   def show
   end
 
@@ -9,6 +9,16 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def upvote
+    @profile.upvote_by current_user
+    redirect_to profile_path
+  end
+
+  def downvote
+    @profile.downvote_by current_user
+    redirect_to profile_path
   end
 
   private

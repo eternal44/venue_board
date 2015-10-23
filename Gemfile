@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails',                  '4.2.3'
 gem 'pg'
 
-gem 'faker',                  '~> 1.4.3'
 gem 'sass-rails',             '~> 5.0'
 gem 'uglifier',               '>= 1.3.0'
 gem 'coffee-rails',           '~> 4.1.0'
@@ -14,13 +13,16 @@ gem 'jbuilder',               '~> 2.0'
 gem 'sdoc',                   '~> 0.4.0', group: :doc
 gem 'pundit',                 '~> 1.0.1'
 gem 'devise',                 '~> 3.5.1'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass',         '~> 3.3.5'
 gem 'ransack',                '~> 1.6.6'
 gem 'paperclip',              '~> 4.3'
 gem 'aws-sdk',                '< 2.0'
 gem 'momentjs-rails',         '~> 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-gem 'font-awesome-rails', '~> 4.4'
+gem 'font-awesome-rails',     '~> 4.4'
+gem 'acts_as_votable',        '~> 0.10.0'
+gem 'faker',                  '~> 1.5'
+
 
 group :development, :test do
   gem 'hirb'

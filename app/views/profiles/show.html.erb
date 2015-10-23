@@ -10,6 +10,18 @@
   <%= job.status %>
 <% end %>
 
+<%= number_to_percentage(@profile.score, precision: 0) %> <br>
+
+<%= link_to like_profile_path(@profile), method: :put do %>
+  <span class="glyphicon glyphicon-thumbs-up"></span>
+<% end %>
+<%= @profile.get_upvotes.size %>
+
+<%= link_to dislike_profile_path(@profile), method: :put do %>
+  <span class="glyphicon glyphicon-thumbs-down"></span>
+<% end %>
+<%= @profile.get_downvotes.size %>
+
 <%= render partial: "comments/form", locals: {commentable: @profile} %>
 <%= render partial: "comments/comments", locals: {commentable: @profile} %>
 

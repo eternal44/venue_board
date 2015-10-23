@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'static_pages/home'
 
-  devise_for :admins, controllers: { registraions: "admins/registrations" }
   devise_for :users
   resources :jobs do
     resources :comments, module: :jobs
@@ -13,11 +12,6 @@ Rails.application.routes.draw do
       put "like", to: "profiles#upvote"
       put "dislike", to: "profiles#downvote"
     end
-  end
-
-  # logged-in root
-  authenticated :admin do
-    root to: "jobs#index", as: :authenticated_admin_root, via: :get
   end
 
   # user logged-in root

@@ -2,15 +2,8 @@
   <%= link_to "Edit | ", edit_profile_path(@profile) %>
 <% end %>
 <%= link_to 'Back', :back %>
-
-<%= @profile.name %></br>
-<%= @profile.user.role %></br>
-<% @profile.user.jobs.each do |job| %>
-  <%= job.title %>
-  <%= job.status %>
-<% end %>
-
-<%= number_to_percentage(@profile.score, precision: 0) %> <br>
+<h2><%= @profile.name %></h2>
+<h4><%= number_to_percentage(@profile.score, precision: 0) %></h4> <br>
 
 <%= link_to like_profile_path(@profile), method: :put do %>
   <span class="glyphicon glyphicon-thumbs-up"></span>
@@ -21,6 +14,33 @@
   <span class="glyphicon glyphicon-thumbs-down"></span>
 <% end %>
 <%= @profile.get_downvotes.size %>
+
+
+<%= @profile.name %></br>
+<%= @profile.user.role %></br>
+
+<h3>Job History</h3>
+<table class="table table-bordered table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Job Title </th>
+      <th>Status</th>
+      <th>Location</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <% @profile.user.jobs.each do |job| %>
+    <tbody>
+      <td><%= job.title %></td>
+      <td><%= job.status %></td>
+      <td><%= job.location %></td>
+      <td><%= job.start_time %></td>
+      <td><%= job.end_time %></td>
+    </tbody>
+  <% end %>
+</table>
+
 
 <%= render partial: "comments/form", locals: {commentable: @profile} %>
 <%= render partial: "comments/comments", locals: {commentable: @profile} %>

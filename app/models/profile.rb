@@ -18,7 +18,7 @@ class Profile < ActiveRecord::Base
   def score
     total = self.get_downvotes.size + self.get_upvotes.size
     if total != 0
-      self.get_upvotes.size / total
+      self.get_upvotes.size / total * 100
     else
       return 0
     end

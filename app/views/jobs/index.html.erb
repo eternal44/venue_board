@@ -22,7 +22,9 @@
     <table class="table table-bordered table-condensed table-striped">
       <thead>
         <tr>
-          <th></th>
+          <% if current_user.role == 'Admin' %>
+            <th></th>
+          <% end %>
           <th>Job Title</th>
           <th>Employer</th>
           <th>Status</th>

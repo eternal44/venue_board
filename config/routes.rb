@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :jobs do
+    collection do
+      put :approve
+    end
     resources :comments, module: :jobs
   end
 

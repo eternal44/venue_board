@@ -42,6 +42,11 @@ class JobsController < ApplicationController
     redirect_to jobs_path
   end
 
+  def approve
+    Job.where(id: params[:job_ids]).update_all( status: 'Approved' )
+    redirect_to jobs_url
+  end
+
   private
   def job_params
     params.require(:job).permit(:title, :location, :start_time, :end_time,

@@ -8,7 +8,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Jobs</h1>
-<%= current_user.present? %>
 
 <div class="row-fluid">
   <% if current_user.role == 'Employer' %>
@@ -26,8 +25,8 @@
     </thead>
 
     <tbody>
-      <% if @job.present? %>
-        <% @job.each do |job| %>
+      <% if @jobs.present? %>
+        <% @jobs.each do |job| %>
           <tr>
             <td><%= link_to job.title, job %></td>
             <td><%= link_to job.user.profile.try(:name), profile_path(job.user.profile.id) %></td>

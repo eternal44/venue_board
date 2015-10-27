@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: job_CRM_development
+  database: arts_up_development
   pool: 5
   host: localhost
   timeout: 5000
@@ -11,7 +11,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: job_CRM_test
+  database: arts_up_test
   pool: 5
   host: localhost
   timeout: 5000

@@ -23,11 +23,5 @@ class EventsControllerTest < ActionController::TestCase
     end
   end
 
-  # # test 'if signed in as artist should only show own jobs' do
-  # #   sign_in employers(:one)
-  # #   get :show, id: jobs(:two)
-  # #   assert_response :redirect
-  # # end
-
 end
 

@@ -27,9 +27,9 @@ class User < ActiveRecord::Base
   after_create :setup_profile
 
   has_one :profile
-  has_many :jobs
+  has_many :events
 
-  accepts_nested_attributes_for :jobs
+  accepts_nested_attributes_for :events
 
   def setup_profile
     Profile.create(user_id: self.id)

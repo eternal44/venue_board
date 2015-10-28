@@ -1,26 +1,26 @@
-class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
+class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @q = Job.ransack(params[:q])
-    @jobs = @q.result(distinct: true).includes(:user)
+    @q = Event.ransack(params[:q])
+    @events = @q.result(distinct: true).includes(:user)
   end
 
   def show
   end
 
   def new
-    @job = Job.new
+    @event = Event.new
   end
 
   def create
-    @job = Job.new(job_params)
-    @job.user = current_user
-    @job.status = 'Created'
+    @event = Event.new(event_params)
+    @event.user = current_user
+    @event.status = 'Created'
 
-    if @job.save
-      redirect_to jobs_path
+    if @event.save
+      redirect_to events_path
     else
       render action: :new
     end
@@ -30,30 +30,30 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @job.update(job_params)
-      redirect_to jobs_path
+    if @event.update(event_params)
+      redirect_to events_path
     else
       render action: :edit
     end
   end
 
   def destroy
-    @job.destroy
-    redirect_to jobs_path
+    @event.destroy
+    redirect_to events_path
   end
 
   def approve
-    Job.where(id: params[:job_ids]).update_all( status: 'Approved' )
-    redirect_to jobs_url
+    Event.where(id: params[:event_ids]).update_all( status: 'Approved' )
+    redirect_to events_url
   end
 
   private
-  def job_params
-    params.require(:job).permit(:title, :location, :start_time, :end_time,
+  def event_params
+    params.require(:event).permit(:title, :location, :start_time, :end_time,
                                 :user_id, :status)
   end
 
-  def set_job
-    @job = Job.find(params[:id])
+  def set_event
+    @event = Event.find(params[:id])
   end
 end

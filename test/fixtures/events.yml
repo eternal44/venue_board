@@ -18,15 +18,15 @@
 one:
   title: 'MyString'
   location: 'MyString'
-  start: 2015-10-15 14:58:38
-  end: 2015-10-15 14:58:38
-  employer_id: one
+  start_time: 2015-10-15 14:58:38
+  end_time: 2015-10-15 14:58:38
+  user: one
   status: 'Created'
 
 two:
   title: 'Second Job'
   location: 'Second Location'
-  start: 2015-10-15 14:58:38
-  end: 2015-10-15 14:58:38
-  employer_id: two
+  start_time: 2015-10-15 14:58:38
+  end_time: 2015-10-15 14:58:38
+  user: two
   status: 'Created'

@@ -2,17 +2,17 @@
 
 <div class="container">
   <hr />
-  <h3>Job Details</h3>
+  <h3>Event Details</h3>
 
   <div>
-    <strong>Job Title</strong>
-    <%= @job.title %></br>
+    <strong>Event Title</strong>
+    <%= @event.title %></br>
 
     <strong>Location</strong>
-    <%= @job.location %></br>
+    <%= @event.location %></br>
 
     </br>
   </div>
-<%= render partial: "comments/form", locals: {commentable: @job} %>
-<%= render partial: "comments/comments", locals: {commentable: @job} %>
+<%= render partial: "comments/form", locals: {commentable: @event} %>
+<%= render partial: "comments/comments", locals: {commentable: @event} %>
 </div>

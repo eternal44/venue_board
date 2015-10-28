@@ -13,7 +13,7 @@
 #  updated_at :datetime         not null
 #
 
-class Job < ActiveRecord::Base
+class Event < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable
 

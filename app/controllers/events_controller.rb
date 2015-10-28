@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+class EventsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!
 

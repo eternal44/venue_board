@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: jobs
+# Table name: events
 #
 #  id         :integer          not null, primary key
 #  title      :string
 #  location   :string
-#  start      :text
-#  end        :text
+#  start_time :text
+#  end_time   :text
 #  user_id    :integer
 #  status     :string
 #  created_at :datetime         not null

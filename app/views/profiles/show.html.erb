@@ -19,24 +19,24 @@
 <%= @profile.name %></br>
 <%= @profile.user.role %></br>
 
-<h3>Job History</h3>
+<h3>Event History</h3>
 <table class="table table-bordered table-condensed table-striped">
   <thead>
     <tr>
-      <th>Job Title </th>
+      <th>Event Title </th>
       <th>Status</th>
       <th>Location</th>
       <th>Start Time</th>
       <th>End Time</th>
     </tr>
   </thead>
-  <% @profile.user.jobs.each do |job| %>
+  <% @profile.user.events.each do |event| %>
     <tbody>
-      <td><%= job.title %></td>
-      <td><%= job.status %></td>
-      <td><%= job.location %></td>
-      <td><%= job.start_time %></td>
-      <td><%= job.end_time %></td>
+      <td><%= event.title %></td>
+      <td><%= event.status %></td>
+      <td><%= event.location %></td>
+      <td><%= event.start_time %></td>
+      <td><%= event.end_time %></td>
     </tbody>
   <% end %>
 </table>

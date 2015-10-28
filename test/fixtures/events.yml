@@ -20,7 +20,7 @@ one:
   location: 'MyString'
   start_time: 2015-10-15 14:58:38
   end_time: 2015-10-15 14:58:38
-  user_id: one
+  user: one
   status: 'Created'
 
 two:
@@ -28,5 +28,5 @@ two:
   location: 'Second Location'
   start_time: 2015-10-15 14:58:38
   end_time: 2015-10-15 14:58:38
-  user_id: two
+  user: two
   status: 'Created'

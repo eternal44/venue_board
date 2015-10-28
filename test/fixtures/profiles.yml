@@ -13,8 +13,8 @@
 
 one:
   name: MyString
-  user_id: 
+  user: one
 
 two:
   name: MyString
-  user_id: 
+  user: two

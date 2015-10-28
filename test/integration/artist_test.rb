@@ -4,14 +4,12 @@ class UsersTest < ActionDispatch::IntegrationTest
   self.use_transactional_fixtures = false
 
   def setup
-    @artist = users(:two)
-    # @job = jobs(:one)
   end
 
   test 'artists can login' do
     visit '/users/sign_in'
     assert page.has_content?('Email'), 'not on user login page'
-    fill_in('Email', with: 'artist@gmail.com')
+    fill_in('Email', with: 'admin@gmail.com')
     fill_in('Password', with: 'password1234')
     find_button('Log in')
     click_on 'Log in'

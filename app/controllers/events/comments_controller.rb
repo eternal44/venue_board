@@ -1,9 +1,9 @@
-class Jobs::CommentsController < CommentsController
+class Events::CommentsController < CommentsController
   before_action :set_commentable
 
   private
 
     def set_commentable
-      @commentable = Job.find(params[:job_id])
+      @commentable = Events.find(params[:event_id])
     end
 end

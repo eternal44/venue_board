@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   devise_for :users
-  resources :jobs do
+  resources :events do
     collection do
       put :approve
     end
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # user logged-in root
   authenticated :user do
-    root to: "jobs#index", as: :authenticated_user_root, via: :get
+    root to: "events#index", as: :authenticated_user_root, via: :get
   end
 
   # visitors root

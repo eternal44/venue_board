@@ -1,12 +1,8 @@
-== Job CRM README
+Venue board README
+==============
 
-An open source Job Board for day laborers
+A platform to connect artists with venues.
 
-To get involved please see the list of needs below or email:
-    jamesyoun710@gmail.com
-
-* How to run the test suite.
-
-* Go to denarius.herokuapp.com for an example site.
+* Go to [artsup123.herokuapp.com](https://artsup123.herokuapp.com/) for a quick demo.
 
 * See 'issues' link for future development & needs for the site.
